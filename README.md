@@ -7,3 +7,7 @@
 1、支持GET、POST、CONNECT方法
 
 2、不支持https
+
+# 用法
+
+go run proxy -port 8888
