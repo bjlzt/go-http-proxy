@@ -10,4 +10,4 @@
 
 # 用法
 
-go run proxy -port 8888
+go run proxy.go -port 8888
