@@ -5,6 +5,14 @@ import "net/http"
 import "strings"
 import "io/ioutil"
 import "time"
+import "flag"
+import "strconv"
+
+var port int
+
+func init() {
+	flag.IntVar(&port, "port", 8888, "the port to listen")
+}
 
 //发送请求的客户端
 //var client = http.DefaultClient
@@ -158,6 +166,9 @@ func log(log string) {
 }
 
 func main() {
+	flag.Parse()
 	mux := &MyMux{}
-	http.ListenAndServe(":9090", mux)
+	addr := ":" + strconv.Itoa(port)
+	log("server in:" + addr)
+	http.ListenAndServe(addr, mux)
 }
